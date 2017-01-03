@@ -17,6 +17,7 @@ var Examples = (props) => {
     <div>
     <h3>Examples</h3>
     <p>I told you i could do it</p>
+    <p> WE OUTCHEAAA!!!!!</p>
     </div>
   );
 }
