@@ -22,10 +22,10 @@ var Weather = React.createClass({
     openWeatherMap.getWeather(location).then(
       function (data) {
         setTimeout(function(){
-          debugger;
+
           that.setState({
             main: data.main,
-            weather: data.weather[1],
+            weather: data.weather[0],
             wind: data.wind,
             clouds: data.clouds,
             location: data.name,
@@ -47,24 +47,24 @@ var Weather = React.createClass({
 
     function renderMessage (){
       if(isLoading){
-        return <h3>Fetching Weather ....</h3>;
+        return <h3 className="text-center">Fetching Weather ....</h3>;
       }else if(main){
-        return <WeatherMessage temp={main.temp} location={location} tempMax={main.temp_max} tempMin={main.temp_min}/>;
+        return <WeatherMessage temp={main.temp} location={location} tempMax={main.temp_max} tempMin={main.temp_min}/>
       }
     }
 
     function renderNextMessage (){
       if(weather){
-        return <WeatherNextMessage wind={wind.speed} clouds={clouds.all} humidity={main.humidity} weatherMain={weather.main} weatherDescription={weather.description}/>;
+        return  <WeatherNextMessage wind={wind.speed} clouds={clouds.all} humidity={main.humidity} weatherMain={weather.main} weatherDescription={weather.description}/>;
       }
     }
 
     return(
       <div>
-        <h3>Weather component</h3>
+        <h1 className="text-center">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch}/>
-        <div>{renderMessage()}</div>
-        <div>{renderNextMessage()}</div>
+        {renderMessage()}
+        {renderNextMessage()}
       </div>
     )
 
