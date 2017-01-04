@@ -22,6 +22,7 @@ var Weather = React.createClass({
     openWeatherMap.getWeather(location).then(
       function (data) {
         setTimeout(function(){
+          debugger;
           that.setState({
             main: data.main,
             weather: data.weather[1],
@@ -54,7 +55,7 @@ var Weather = React.createClass({
 
     function renderNextMessage (){
       if(weather){
-        return <WeatherNextMessage wind={wind.speed} clouds={clouds.all} humidity={main.humidity} weatherMain={weather.main} weatherDescription={weather.description}/>
+        return <WeatherNextMessage wind={wind.speed} clouds={clouds.all} humidity={main.humidity} weatherMain={weather.main} weatherDescription={weather.description}/>;
       }
     }
 
@@ -62,8 +63,8 @@ var Weather = React.createClass({
       <div>
         <h3>Weather component</h3>
         <WeatherForm onSearch={this.handleSearch}/>
-        {renderMessage()}
-        {renderNextMessage()}
+        <div>{renderMessage()}</div>
+        <div>{renderNextMessage()}</div>
       </div>
     )
 

@@ -16,7 +16,7 @@ var WeatherMessage = ({temp, location, tempMax, tempMin}) => {
   //var {temp, location, tempMax, tempMin} = props;
   return(
     <div>
-      <h3>its {temp} in {location} with a high of {tempMax} and a low of {tempMin}</h3>
+      <h5>its {temp} in {location} with a high of {tempMax} and a low of {tempMin}</h5>
     </div>
   );
 }
