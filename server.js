@@ -1,6 +1,7 @@
 var express = require('express');
 
 //app init
+var path = require('path')
 var app = express();
 var port = 3000;
 const PORT = process.env.PORT || 3000;
@@ -9,11 +10,15 @@ app.use(function(req, res, next){
 
   if(req.headers['x-forwarded-proto'] === 'http') {
     res.redirect('http://' + req.hostname + req.url);
-  } else {    
+  } else {
     next();
   }
 
 });
+
+// app.get('*', function(req, res) {
+//   res.sendFile(path.join(__dirname, 'public/index.html'));
+// });
 
 app.use(express.static('public'));
 
