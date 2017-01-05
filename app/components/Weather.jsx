@@ -40,7 +40,7 @@ var Weather = React.createClass({
             isLoading: false
           })
 
-          var newTemp = that.state.main.temp.substr(0, that.state.main.temp.length-2);
+          //var newTemp = that.state.main.temp.substr(0, that.state.main.temp.length-2);
 
 
        }, 1000);
