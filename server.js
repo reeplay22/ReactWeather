@@ -1,9 +1,9 @@
 var express = require('express');
-
-//app init
-var path = require('path')
 var app = express();
-var port = 3000;
+//app init
+//var path = require('path')
+
+//var port = 3000;
 const PORT = process.env.PORT || 3000;
 
 app.use(function(req, res, next){
