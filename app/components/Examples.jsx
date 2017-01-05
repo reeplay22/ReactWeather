@@ -15,7 +15,7 @@ var{Link} = require('react-router');
 var Examples = (props) => {
   return(
     <div>
-    <h3 className="text-center">Examples</h3>
+    <h1 className="text-center page-title">Examples</h1>
     <p>I told you i could do it</p>
     <p> WE OUTCHEAAA!!!!!</p>
     <p>Try out some links to weather in these cities</p>

@@ -14,10 +14,10 @@ var React = require('react');
 var About = (props) => {
   return(
     <div>
-      <h1 className="text-center">About Me</h1>
+      <h1 className="text-center page-title">About Me</h1>
       <h6>My name is Tim Reed and as you can see I am that ninja!!!!!!!!</h6>
       <p>oh yeah my spirit name is Tehuti Ra Akenaten</p>
-      
+
       <p>
         This is a weather application built on React and Node JS. I
         have built this for the Catalyst React Development Bootcamp.

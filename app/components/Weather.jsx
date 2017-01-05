@@ -59,7 +59,9 @@ var Weather = React.createClass({
     }
 
     function renderNextMessage (){
-      if(weather){
+      if(isLoading){
+        return <h3 className="text-center">It takes a sec (literally)</h3>
+      }else if(weather){
         return  <WeatherNextMessage wind={wind.speed} clouds={clouds.all} humidity={main.humidity} weatherMain={weather.main} weatherDescription={weather.description}/>;
       }
     }
@@ -74,7 +76,7 @@ var Weather = React.createClass({
 
     return(
       <div>
-        <h1 className="text-center">Get Weather</h1>
+        <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
         {renderNextMessage()}

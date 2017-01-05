@@ -19,8 +19,8 @@ var React = require('react');
 
 var WeatherNextMessage = ({wind, clouds, humidity, weatherMain, weatherDescription}) => {
   return(
-    <div>
-      <ul className="text-center">
+    <div className="text-center">
+      <ul className="text-left">
       <li>wind: {wind} mph</li>
       <li>clouds: {clouds} %</li>
       <li>humidity: {humidity}</li>
