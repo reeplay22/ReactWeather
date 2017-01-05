@@ -19,13 +19,18 @@ var Weather = React.createClass({
 
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      main: undefined,
+      weather:undefined,
+      wind: undefined,
+      clouds: undefined
+
     });
 
     openWeatherMap.getWeather(location).then(
       function (data) {
         setTimeout(function(){
-
           that.setState({
             main: data.main,
             weather: data.weather[0],
@@ -34,21 +39,48 @@ var Weather = React.createClass({
             location: data.name,
             isLoading: false
           })
+
+          var newTemp = that.state.main.temp.substr(0, that.state.main.temp.length-2);
+
+
        }, 1000);
+
+
+
 
     },  function(data){
       that.setState({
         isLoading: false,
-        errorMessage: data.message
+        errorMessage: data.message,
+        errorCode: data.cod
        });
 
     });
 
   },
 
+  componentDidMount: function () {
+    var location = this.props.location.query.location;
+
+    if(location && location.length > 0 ){
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    var location = newProps.location.query.location;
+
+    if(location && location.length > 0 ){
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
 
   render: function (){
-    var {main, weather, wind, clouds, location, isLoading, errorMessage} = this.state;
+    var {main, weather, wind, clouds, location, isLoading, errorMessage, errorCode} = this.state;
+
+
 
     function renderMessage (){
       if(isLoading){
@@ -69,7 +101,7 @@ var Weather = React.createClass({
     function renderError(){
       if (typeof errorMessage === 'string'){
         return(
-          <ErrorModal message={errorMessage}/>
+          <ErrorModal errorMessage={errorMessage} errorCode={errorCode}/>
         )
       }
     }

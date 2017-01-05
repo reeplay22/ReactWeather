@@ -24,7 +24,7 @@ var WeatherNextMessage = ({wind, clouds, humidity, weatherMain, weatherDescripti
       <li>wind: {wind} mph</li>
       <li>clouds: {clouds} %</li>
       <li>humidity: {humidity}</li>
-      <li>weather: {weatherMain} and {weatherDescription}</li>
+      <li>description: {weatherMain} and {weatherDescription}</li>
       </ul>
     </div>
   );

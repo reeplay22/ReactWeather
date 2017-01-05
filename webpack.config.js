@@ -33,7 +33,8 @@ module.exports = {
       Extra: 'app/components/Extra.jsx',
       openWeatherMap: 'app/api/openWeatherMap.jsx',
       ErrorModal: 'app/components/ErrorModal.jsx',
-      applicationStyles: 'app/styles/app.css'
+      applicationStyles: 'app/styles/app.scss',
+      //picture: 'app/images/unnamed.png'
     },
 
     extensions: ['','.js','.jsx']
@@ -47,6 +48,22 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude:/(node_modules|bower_components)/
+      },
+      // {
+      //   loader: 'react-image-load',
+      //   test: /\.(jpe?g|png|gif|svg)$/i
+      // },
+      {
+        loader: 'url-loader',
+        test:/\.(png|jpg)$/,
+        options: {
+          limit: 25000
+        }
+      },
+      {
+        loader: 'file-loader',
+        test:/\.(jpg|png)$/
+
       }
     ]
   },
