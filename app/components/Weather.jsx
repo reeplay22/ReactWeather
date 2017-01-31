@@ -20,7 +20,7 @@ var Weather = React.createClass({
     this.setState({
       isLoading: true,
       errorMessage: undefined,
-      location: undefined,
+      datalocation: undefined,
       main: undefined,
       weather:undefined,
       wind: undefined,
@@ -36,8 +36,8 @@ var Weather = React.createClass({
             weather: data.weather[0],
             wind: data.wind,
             clouds: data.clouds,
-            location: data.name,
-            locationPass: data.name,
+            datalocation: data.name,
+            nextLocation: data.name,
             isLoading: false
           })
        }, 1000);
@@ -70,18 +70,16 @@ var Weather = React.createClass({
   },
 
   render: function (){
-    var {main, weather, wind, clouds, location, isLoading, errorMessage, errorCode, locationPass} = this.state;
-
-
+    var {main, weather, wind, clouds, datalocation, isLoading, errorMessage, errorCode, nextLocation} = this.state;
 
     function renderMessage (){
       if(isLoading){
         return <div><h3 className="text-center">Fetching Weather ....</h3><h3 className="text-center">It takes a sec (literally)</h3></div>;
       }else if(main){
-        return <WeatherMessage temp={main.temp} location={location} tempMax={main.temp_max}
+        return <WeatherMessage temp={main.temp} location={datalocation} tempMax={main.temp_max}
           tempMin={main.temp_min} wind={wind.speed} clouds={clouds.all}
           humidity={main.humidity} weatherMain={weather.main} weatherDescription={weather.description}
-          nextLocation={locationPass}/>
+          nextLocation={nextLocation}/>
       }
     }
 

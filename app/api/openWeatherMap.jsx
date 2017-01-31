@@ -27,11 +27,11 @@ module.exports = {
 
     return axios.get(requestUrl).then(function (res){
 
-      //if(res.data.cod) {
-      //  throw new Error(res.data.message)
+    //   if(res.data.message) {
+    //     throw new Error(res.data.message)
     //  } else {
-        return res.data;
-    //  }
+        return res.data.list;
+   // }
 
     },function(res){
       throw new Error(res.data);

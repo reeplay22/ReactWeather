@@ -17,115 +17,203 @@ var React = require('react');
 //   }
 // });
 
-var WeatherNextMessage = ({
-todayDate,
-todayTemp,
-todayTempMax,
-todayTempMin,
-todayWind,
-todayClouds,
-todayHumidity,
-todayDescription,
+// this.props.forecast.forEach(function(day) {
+    //         dayDate: day.dt_txt,
+    //         dayTemp: daymain.temp,
+    //         dayTempMax: day.main.temp_max,
+    //         dayTempMin: day.main.temp_min,
+    //         dayWind: day.wind.speed,
+    //         dayClouds: day.clouds.all,
+    //         dayHumidity: day.main.humidity,
+    //         dayDescription: data.weather.description,
+    //         }, this);
 
-tommorrowDate,
-tommorrowTemp,
-tommorrowTempMax,
-tommorrowTempMin,
-tommorrowWind,
-tommorrowClouds,
-tommorrowHumidity,
-tommorrowDescription,
+var WeatherNextMessage = React.createClass({
 
-thirdDayDate,
-thirdDayTemp,
-thirdDayTempMax,
-thirdDayTempMin,
-thirdDayWind,
-thirdDayClouds,
-thirdDayHumidity,
-thirdDayDescription,
+ getInitialState: function() {
+   return {
+     pause: true
+   }
+    
+ },
 
-fourthDayDate,
-fourthDayTemp,
-fourthDayTempMax,
-fourthDayTempMin,
-fourthDayWind,
-fourthDayClouds,
-fourthDayHumidity,
-fourthDayDescription,
+render: function() {
+  
+  var {pause} = this.state;
+  var {forecast} = this.props;
 
-fifthDayDate,
-fifthDayTemp,
-fifthDayTempMax,
-fifthDayTempMin,
-fifthDayWind,
-fifthDayClouds,
-fifthDayHumidity,
-fifthDayDescription }) => {
+      function renderForecast(display) {
+     //  console.log(display);
+    //     if(pause){
+    //       return <h3 className="text-center">hold up AAAHHHHH!!!</h3>
+    //     }else{
+       // return display.map((day)=>{  
+          //console.log(day);        
+        //   <div>
+        //     <h6>Today: {day.dt_txt}</h6>
+        //     <div className="text-center">
+        //       <ul className="text-left">
+        //         <li>Temp: {day.main.temp}</li>
+        //         <li  className="temp tempMax">Hi: {day.main.temp_max}</li>
+        //         <li className="temp tempMin">Lo: {day.main.temp_min}</li>
+        //         <li>wind: {day.wind.speed}</li>
+        //         <li>clouds {day.clouds.all}</li>
+        //         <li>humidity: {day.main.humidity}</li>
+        //         <li>description: {day.weather.description}</li>
+        //       </ul>
+        //     </div>
+        //   </div>
+        // });
+     // }
+    }
 
 
-  return(<div>
-    <div>
-      <h6>Today: {todayDate}</h6>
-      <div>
-        <p>Temp: {todayTemp}</p>
-        <p>Hi: {todayTempMax}</p>
-        <p>Lo: {todayTempMin}</p>
-        <p>wind: {todayWind}</p>
-        <p>clouds {todayClouds}</p>
-        <p>humidity: {todayHumidity}</p>
-        <p>description: {todayDescription}</p>
-      </div>
-    </div>
-    <div>
-      <h6>Tommorrow: {tommorrowDate}</h6>
-        <div>
-          <p>Temp: {tommorrowTemp}</p>
-          <p>Hi: {tommorrowTempMax}</p>
-          <p>Lo: {tommorrowTempMin}</p>
-          <p>wind: {tommorrowWind}</p>
-          <p>clouds {tommorrowClouds}</p>
-          <p>humidity: {tommorrowHumidity}</p>
-          <p>description: {tommorrowDescription}</p>
+    
+    return(<div>   
+        {forecast.map((day)=>{  
+          console.log(day);        
+          return <div>
+            <h6>Date: {day.dt_txt}</h6>
+            <div className="text-center">
+              <ul className="text-left">
+                <li>Temp: {day.main.temp}</li>
+                <li  className="temp tempMax">Hi: {day.main.temp_max}</li>
+                <li className="temp tempMin">Lo: {day.main.temp_min}</li>
+                <li>wind: {day.wind.speed}</li>
+                <li>clouds {day.clouds.all}</li>
+                <li>humidity: {day.main.humidity}</li>
+                <li>description: {day.weather.description}</li>
+              </ul>
+            </div>
+          </div>
+        })}
         </div>
-    </div>
-    <div>
-      <h6>ThirdDay: {thirdDayDate}</h6>
-        <div>
-          <p>Temp: {thirdDayTemp}</p>
-          <p>Hi: {thirdDayTempMax}</p>
-          <p>Lo: {thirdDayTempMin}</p>
-          <p>wind: {thirdDayWind}</p>
-          <p>clouds {thirdDayClouds}</p>
-          <p>humidity: {thirdDayHumidity}</p>
-          <p>description: {thirdDayDescription}</p>
-        </div>
-    </div>
-    <div>
-      <h6>FourthDay: {fourthDayDate}</h6>
-        <div>
-          <p>Temp: {fourthDayTemp}</p>
-          <p>Hi: {fourthDayTempMax}</p>
-          <p>Lo: {fourthDayTempMin}</p>
-          <p>wind: {fourthDayWind}</p>
-          <p>clouds {fourthDayClouds}</p>
-          <p>humidity: {fourthDayHumidity}</p>
-          <p>description: {fourthDayDescription}</p>
-        </div>
-    </div>
-    <div>
-      <h6>FifthDay: {fifthDayDate}</h6>
-        <div>
-          <p>Temp: {fifthDayTemp}</p>
-          <p>Hi: {fifthDayTempMax}</p>
-          <p>Lo: {fifthDayTempMin}</p>
-          <p>wind: {fifthDayWind}</p>
-          <p>clouds {fifthDayClouds}</p>
-          <p>humidity: {fifthDayHumidity}</p>
-          <p>description: {fifthDayDescription}</p>
-        </div>
-    </div>
-  </div>);
-}
+        );
+      
+  }
 
+    });
 module.exports = WeatherNextMessage;
+
+ // dayDate: day.dt_txt,
+            // dayTemp: day.main.temp,
+            // dayTempMax: day.main.temp_max,
+            // dayTempMin: day.main.temp_min,
+            // dayWind: day.wind.speed,
+            // dayClouds: day.clouds.all,
+            // dayHumidity: day.main.humidity,
+            // dayDescription: data.weather.description,
+            // }, this);
+
+
+
+  // <div>
+  //       <h6>Today: {todayDate}</h6>
+  //       <div className="text-center">
+  //         <ul className="text-left">
+  //           <li>Temp: {todayTemp}</li>
+  //           <li  className="temp tempMax">Hi: {todayTempMax}</li>
+  //           <li className="temp tempMin">Lo: {todayTempMin}</li>
+  //           <li>wind: {todayWind}</li>
+  //           <li>clouds {todayClouds}</li>
+  //           <li>humidity: {todayHumidity}</li>
+  //           <li>description: {todayDescription}</li>
+  //         </ul>
+  //       </div>
+  //     </div>
+
+// todayDate,
+// todayTemp,
+// todayTempMax,
+// todayTempMin,
+// todayWind,
+// todayClouds,
+// todayHumidity,
+// todayDescription,
+
+// tommorrowDate,
+// tommorrowTemp,
+// tommorrowTempMax,
+// tommorrowTempMin,
+// tommorrowWind,
+// tommorrowClouds,
+// tommorrowHumidity,
+// tommorrowDescription,
+
+// thirdDayDate,
+// thirdDayTemp,
+// thirdDayTempMax,
+// thirdDayTempMin,
+// thirdDayWind,
+// thirdDayClouds,
+// thirdDayHumidity,
+// thirdDayDescription,
+
+// fourthDayDate,
+// fourthDayTemp,
+// fourthDayTempMax,
+// fourthDayTempMin,
+// fourthDayWind,
+// fourthDayClouds,
+// fourthDayHumidity,
+// fourthDayDescription,
+
+// fifthDayDate,
+// fifthDayTemp,
+// fifthDayTempMax,
+// fifthDayTempMin,
+// fifthDayWind,
+// fifthDayClouds,
+// fifthDayHumidity,
+// fifthDayDescription 
+
+
+
+// <div>
+//       <h6>Tommorrow: {tommorrowDate}</h6>
+//         <div>
+//           <p>Temp: {tommorrowTemp}</p>
+//           <p>Hi: {tommorrowTempMax}</p>
+//           <p>Lo: {tommorrowTempMin}</p>
+//           <p>wind: {tommorrowWind}</p>
+//           <p>clouds {tommorrowClouds}</p>
+//           <p>humidity: {tommorrowHumidity}</p>
+//           <p>description: {tommorrowDescription}</p>
+//         </div>
+//     </div>
+//     <div>
+//       <h6>ThirdDay: {thirdDayDate}</h6>
+//         <div>
+//           <p>Temp: {thirdDayTemp}</p>
+//           <p>Hi: {thirdDayTempMax}</p>
+//           <p>Lo: {thirdDayTempMin}</p>
+//           <p>wind: {thirdDayWind}</p>
+//           <p>clouds {thirdDayClouds}</p>
+//           <p>humidity: {thirdDayHumidity}</p>
+//           <p>description: {thirdDayDescription}</p>
+//         </div>
+//     </div>
+//     <div>
+//       <h6>FourthDay: {fourthDayDate}</h6>
+//         <div>
+//           <p>Temp: {fourthDayTemp}</p>
+//           <p>Hi: {fourthDayTempMax}</p>
+//           <p>Lo: {fourthDayTempMin}</p>
+//           <p>wind: {fourthDayWind}</p>
+//           <p>clouds {fourthDayClouds}</p>
+//           <p>humidity: {fourthDayHumidity}</p>
+//           <p>description: {fourthDayDescription}</p>
+//         </div>
+//     </div>
+//     <div>
+//       <h6>FifthDay: {fifthDayDate}</h6>
+//         <div>
+//           <p>Temp: {fifthDayTemp}</p>
+//           <p>Hi: {fifthDayTempMax}</p>
+//           <p>Lo: {fifthDayTempMin}</p>
+//           <p>wind: {fifthDayWind}</p>
+//           <p>clouds {fifthDayClouds}</p>
+//           <p>humidity: {fifthDayHumidity}</p>
+//           <p>description: {fifthDayDescription}</p>
+//         </div>
+//     </div>
